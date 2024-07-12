@@ -1,1 +1,0 @@
-export { ThankYouFormStep } from "./ThankYouFormStep"
