@@ -1,22 +1,26 @@
-import style from "./Stepper.module.css"
+import style from "./SideBar.module.css"
 import bgSidebarMobile from "../../assets/images/bg-sidebar-mobile.svg"
 import bgSidebarDesktop from "../../assets/images/bg-sidebar-desktop.svg"
 import { useMultiStepFormContext } from "../../contexts/MultiStepFormContext"
 
-type StepperProps = {
+type SideBarProps = {
   steps: string[]
 }
-export const Stepper = ({ steps }: StepperProps) => {
+export const SideBar = ({ steps }: SideBarProps) => {
   const { activeStep } = useMultiStepFormContext()
 
-  return <aside className={style.stepper}>
-    <picture role="presentation">
+  return <aside className={style.sidebar}>
+    <picture>
       <source
         srcSet={bgSidebarMobile}
         media="(width < 50rem)"
       />
 
-      <img src={bgSidebarDesktop} />
+      <img
+        role="presentation"
+        src={bgSidebarDesktop}
+        alt=""
+      />
     </picture>
 
     <div>

@@ -1,1 +1,1 @@
-export { Sidebar } from "./Sidebar"
+export { SideBar } from "./Stepper"

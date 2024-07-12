@@ -2,7 +2,7 @@ import { AddonFormStep } from "./components/AddonFormStep"
 import { FormFooter } from "./components/FormFooter"
 import { FormStep } from "./components/FormStep"
 import { PersonalInfoFormStep } from "./components/PersonalInfoFormStep"
-import { Stepper } from "./components/Stepper"
+import { SideBar } from "./components/SideBar"
 import { SubscriptionFormStep } from "./components/SubscriptionFormStep"
 import { SummaryFormStep } from "./components/SummaryFormStep"
 import { ThankYouFormStep } from "./components/ThankYouFormStep"
@@ -32,7 +32,7 @@ function App() {
     onSubmit={data => console.log(data)}
     onError={console.error}
   >
-    <Stepper steps={STEPS} />
+    <SideBar steps={STEPS} />
 
     <FormStep step={0}>
       <PersonalInfoFormStep />
