@@ -1,0 +1,7 @@
+.radio {
+  cursor: pointer;
+
+  &:is(:hover, :focus-visible) > div {
+    border-color: var(--purplish-blue);
+  }
+}

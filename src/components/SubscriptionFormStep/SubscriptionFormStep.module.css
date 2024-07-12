@@ -1,0 +1,45 @@
+.plans {
+  display: grid;
+  gap: 1rem;
+
+  @media (width >= 50rem) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  & .plan {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+
+    @media (width >= 50rem) {
+      flex-direction: column;
+
+      h2 {
+        margin-block-start: 2rem;
+      }
+    }
+
+    & h2 {
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+
+    & p {
+      color: var(--cool-gray);
+      font-size: 0.85rem;
+      line-height: 1.75;
+
+      & > strong {
+        color: var(--marine-blue);
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.subscription {
+  display: grid;
+  place-items: center;
+  padding-block: 1rem;
+  background-color: var(--alabaster);
+}

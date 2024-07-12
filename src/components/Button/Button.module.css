@@ -1,0 +1,57 @@
+.button {
+  display: block;
+  border: none;
+  padding-inline: 1.25rem;
+  padding-block: 0.75rem;
+
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  font-weight: 500;
+
+  &.default {
+    background-color: var(--marine-blue);
+    color: var(--white);
+
+    &:is(:focus-visible, :hover) {
+      background-color: hsl(from var(--marine-blue) h s calc(l + 10));
+    }
+  }
+
+  &.accent {
+    background-color: var(--purplish-blue);
+    color: var(--white);
+
+    &:is(:focus-visible, :hover) {
+      background-color: hsl(from var(--purplish-blue) h calc(s - 10) calc(l + 10));
+    }
+  }
+
+  &.transparent {
+    background-color: transparent;
+    color: var(--cool-gray);
+
+    &:is(:focus-visible, :hover) {
+      color: var(--marine-blue);
+    }
+  }
+
+  &.link {
+    padding: 0;
+
+    color: var(--cool-gray);
+    text-decoration: underline;
+
+    background-color: transparent;
+
+    &:is(:focus-visible, :hover) {
+      color: var(--purplish-blue);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      background-color 200ms ease-in-out,
+      color 200ms ease-in-out;
+  }
+}

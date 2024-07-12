@@ -1,0 +1,14 @@
+.thanks {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+
+  text-align: center;
+
+  & > p {
+    max-inline-size: 50ch;
+
+    color: var(--cool-gray);
+  }
+}
+
