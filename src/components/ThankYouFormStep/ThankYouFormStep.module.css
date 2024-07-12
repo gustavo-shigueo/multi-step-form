@@ -1,6 +1,12 @@
-.thanks {
-  display: grid;
+:has(> .thanks) {
+  grid-row: span 2;
   place-items: center;
+}
+
+.thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
 
   text-align: center;
@@ -11,4 +17,3 @@
     color: var(--cool-gray);
   }
 }
-

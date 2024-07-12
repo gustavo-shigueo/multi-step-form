@@ -1,12 +1,14 @@
 import style from "./Stepper.module.css"
 import bgSidebarMobile from "../../assets/images/bg-sidebar-mobile.svg"
 import bgSidebarDesktop from "../../assets/images/bg-sidebar-desktop.svg"
+import { useMultiStepFormContext } from "../../contexts/MultiStepFormContext"
 
 type StepperProps = {
-  activeStep: number
   steps: string[]
 }
-export const Stepper = ({ steps, activeStep }: StepperProps) => {
+export const Stepper = ({ steps }: StepperProps) => {
+  const { activeStep } = useMultiStepFormContext()
+
   return <aside className={style.stepper}>
     <picture role="presentation">
       <source
@@ -19,17 +21,16 @@ export const Stepper = ({ steps, activeStep }: StepperProps) => {
 
     <div>
       {steps.map((s, i, arr) => {
-        const isActive = i === activeStep
+        const isCurrentStep = i === activeStep
         const isLast = i === arr.length - 1
-        const isOutOfBounds = i >= arr.length
+        const isOutOfBounds = activeStep >= arr.length
+
+        const active = isCurrentStep || (isLast && isOutOfBounds)
 
         return <div
           key={`step-${i}`}
           className={
-            `${style.step} ${isActive || (isLast && isOutOfBounds)
-              ? "active"
-              : ""
-              }`.trim()
+            `${style.step} ${active ? style.active : ""}`.trim()
           }
         >
           <span>{i + 1}</span>

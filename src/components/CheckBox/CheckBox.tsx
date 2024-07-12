@@ -15,7 +15,15 @@ export const CheckBox = ({
   name
 }: CheckBoxProps) => {
   const { register, watch } = useFormContext()
-  return <label className={style.checkbox}>
+  return <label
+    tabIndex={0}
+    onKeyDown={e => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.currentTarget.click()
+      }
+    }}
+    className={style.checkbox}
+  >
     <Card className={className ?? ""} active={watch(name)}>
       <div className={style.input}>
         <img src={checkmark} role="presentation" />

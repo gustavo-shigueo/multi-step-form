@@ -1,0 +1,20 @@
+.footer {
+  display: flex;
+  grid-column: 2;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--white);
+
+  & > :last-child {
+    margin-inline-start: auto;
+  }
+
+  @media (width < 50rem) {
+    position: fixed;
+    inset: auto 0 0 0;
+    padding: 1rem;
+
+    box-shadow: 0 0 5px 0 hsl(from var(--marine-blue) h s l / 0.15);
+  }
+}

@@ -92,52 +92,6 @@
 
     padding: 1rem;
 
-    & > main {
-      display: grid;
-      gap: 1rem;
-
-      background-color: var(--white);
-
-      @media (width < 50rem) {
-        position: absolute;
-        inset: 6rem 5svw auto 5svw;
-        padding-inline: 1.5rem;
-        padding-block: 2rem;
-
-        border-radius: 1rem;
-        box-shadow: 0 5px 5px 0 hsl(from var(--marine-blue) h s l / 0.15);
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -6rem;
-          aspect-ratio: 1;
-          inline-size: 1px;
-        }
-
-        & > header p {
-          font-size: 1.25rem;
-          line-height: 1.25;
-        }
-      }
-    }
-
-    & > footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      background-color: var(--white);
-
-      @media (width < 50rem) {
-        position: fixed;
-        inset: auto 0 0 0;
-        padding: 1rem;
-
-        box-shadow: 0 0 5px 0 hsl(from var(--marine-blue) h s l / 0.15);
-      }
-    }
-
     @media (width < 50rem) {
       padding: 0;
     }
@@ -147,23 +101,11 @@
       gap: 5rem;
       grid-template-columns: auto 1fr;
       padding-inline-end: 5rem;
-
-      & > :is(main, footer) {
-        grid-column: 2;
-      }
-
-      & > main {
-        padding-block: 2rem;
-      }
     }
   }
 }
 
 @layer utility {
-  .mis-auto {
-    margin-inline-start: auto;
-  }
-
   .text-danger {
     color: var(--strawberry-red);
   }

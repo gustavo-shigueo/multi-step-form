@@ -1,5 +1,5 @@
 import style from "./Toggle.module.css"
-import { useId, type HTMLAttributes } from "react"
+import { useId, type HTMLAttributes, type KeyboardEvent } from "react"
 import { useFormContext } from "react-hook-form"
 
 type ToggleOption = {
@@ -21,11 +21,21 @@ export const Toggle = ({
   const id = useId()
   const { register } = useFormContext()
 
+  function onKeyDown(e: KeyboardEvent<HTMLLabelElement>) {
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.currentTarget.click()
+    }
+  }
+
   return <div
     className={`${style.toggle} ${className}`.trim()}
     {...props}
   >
-    <label htmlFor={`${id}-${option1.value}`}>
+    <label
+      onKeyDown={onKeyDown}
+      htmlFor={`${id}-${option1.value}`}
+      tabIndex={0}
+    >
       {option1.label}
     </label>
 
@@ -48,7 +58,11 @@ export const Toggle = ({
       />
     </div>
 
-    <label htmlFor={`${id}-${option2.value}`}>
+    <label
+      onKeyDown={onKeyDown}
+      htmlFor={`${id}-${option2.value}`}
+      tabIndex={0}
+    >
       {option2.label}
     </label>
   </div>

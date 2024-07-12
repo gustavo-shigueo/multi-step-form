@@ -11,7 +11,15 @@ type RadioButtonProps = {
 }
 export const RadioButton = ({ className, name, children, value }: RadioButtonProps) => {
   const { register, watch } = useFormContext()
-  return <label className={style.radio}>
+  return <label
+    onKeyDown={e => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.currentTarget.click()
+      }
+    }}
+    tabIndex={0}
+    className={style.radio}
+  >
     <Card
       className={className ?? ""}
       active={watch(name) === value}

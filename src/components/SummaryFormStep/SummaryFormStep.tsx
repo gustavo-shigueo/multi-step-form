@@ -2,12 +2,13 @@ import style from "./SummaryFormStep.module.css"
 import { useFormContext } from "react-hook-form"
 import { addons } from "../../data/addons"
 import { plans } from "../../data/plans"
-import { Dispatch, SetStateAction, useMemo } from "react"
+import { useMemo } from "react"
 import { Button } from "../Button"
 import { FormSchema } from "../../data/schema"
+import { useMultiStepFormContext } from "../../contexts/MultiStepFormContext"
 
-type SummaryFormStepProps = { setStep: Dispatch<SetStateAction<number>> }
-export const SummaryFormStep = ({ setStep }: SummaryFormStepProps) => {
+export const SummaryFormStep = () => {
+  const { setActiveStep } = useMultiStepFormContext()
   const { watch } = useFormContext<FormSchema>()
 
   const plan = watch("plan")
@@ -61,7 +62,7 @@ export const SummaryFormStep = ({ setStep }: SummaryFormStepProps) => {
           <Button
             variant="link"
             type="button"
-            onClick={() => setStep(1)}
+            onClick={() => setActiveStep(1)}
           >
             Change
           </Button>

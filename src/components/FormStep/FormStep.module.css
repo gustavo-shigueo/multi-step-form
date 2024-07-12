@@ -1,0 +1,40 @@
+.step {
+  display: grid;
+  gap: 1rem;
+  grid-column: 2;
+  padding-block: 2rem;
+
+  background-color: var(--white);
+
+  @media (width < 50rem) {
+    position: absolute;
+    inset: 6rem 5svw auto 5svw;
+    padding-inline: 1.5rem;
+
+    border-radius: 1rem;
+    box-shadow: 0 5px 5px 0 hsl(from var(--marine-blue) h s l / 0.15);
+
+    /*
+     * This after pseudo element ensures the form's footer
+     * will never obscure the form itself by causing the
+     * viewport to overflow until the form is completely
+     * visible
+     */
+    &::after {
+      content: "";
+
+      position: absolute;
+      bottom: -6rem;
+      aspect-ratio: 1;
+      inline-size: 1px;
+
+      pointer-events: none;
+      background-color: transparent;
+    }
+
+    & > header p {
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+  }
+}

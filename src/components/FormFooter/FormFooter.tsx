@@ -1,39 +1,35 @@
+import style from "./FormFooter.module.css"
+import { useMultiStepFormContext } from "../../contexts/MultiStepFormContext"
 import { Button } from "../Button"
 
 const LAST_STEP = 4
 
-type FormFooterProps = {
-  handleBack: () => void
-  handleNext: () => Promise<void>
-  step: number
-}
-export const FormFooter = ({ step, handleBack, handleNext }: FormFooterProps) => {
-  if (step >= LAST_STEP) {
+export const FormFooter = () => {
+  const { activeStep, back, next } = useMultiStepFormContext()
+
+  if (activeStep >= LAST_STEP) {
     return null
   }
 
-  const isSubmitStep = step === LAST_STEP - 1
+  const isSubmitStep = activeStep === LAST_STEP - 1
 
-  return <footer>
-    {step > 0 && (
+  return <footer className={style.footer}>
+    {activeStep > 0 && (
       <Button
         variant="transparent"
         type="button"
-        onClick={handleBack}
+        onClick={back}
       >
         Go Back
       </Button>
     )}
+
     {isSubmitStep ? (
-      <Button variant="accent" type="submit">
+      <Button key="submit" variant="accent" type="submit">
         Confirm
       </Button>
     ) : (
-      <Button
-        type="button"
-        className="mis-auto"
-        onClick={handleNext}
-      >
+      <Button key="next" type="button" onClick={next}>
         Next Step
       </Button>
     )}
