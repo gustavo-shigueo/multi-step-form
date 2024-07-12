@@ -72,7 +72,7 @@ export const MultiStepFormContextProvider = <
             },
             error => {
               console.error(errors)
-              onError(error)
+              onError?.(error)
             },
           )
         }
